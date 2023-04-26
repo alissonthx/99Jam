@@ -13,7 +13,7 @@ public class BubbleCollision : MonoBehaviour
 
     [Header("Bubble Collision")]
 
-    public float collisionRadius = 0.15f;
+    public float collisionRadius = 0.3f;
 
     public Vector2 rightOffset;
     public Vector2 leftOffset;

@@ -9,6 +9,8 @@ public class VolumeController : MonoBehaviour
     private float volumeMaster, volumeSFX, volumeMusic;
     [SerializeField]
     private Slider sliderMaster, sliderSFX, sliderMusic;
+    [SerializeField]
+    GameObject[] Music;
 
     private void Start()
     {
@@ -21,10 +23,11 @@ public class VolumeController : MonoBehaviour
     {
         volumeMaster = volume;
         AudioListener.volume = volumeMaster;
+        PlayerPrefs.SetFloat("Master", volumeMaster);
     }
     public void VolumeSFX(float volume)
     {
-        volumeMaster = volume;
+        volumeSFX = volume;
         GameObject[] SFX = GameObject.FindGameObjectsWithTag("SFX");
         for (int i = 0; i < SFX.Length; i++)
         {
@@ -34,7 +37,7 @@ public class VolumeController : MonoBehaviour
     }
     public void VolumeMusic(float volume)
     {
-        volumeMaster = volume;
+        volumeMusic = volume;
         GameObject[] Music = GameObject.FindGameObjectsWithTag("Music");
         for (int i = 0; i < Music.Length; i++)
         {
