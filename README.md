@@ -6,5 +6,8 @@
 <ul>
 <li>
 Unity 2D Game engine
+</li>
+<li>
+C#
 </li>	
 <u>
