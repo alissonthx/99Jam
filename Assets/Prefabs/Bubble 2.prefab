@@ -183,7 +183,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -222,11 +222,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player:
     serializedVersion: 2
-    m_Bits: 0
-  topCollision: 0
+    m_Bits: 256
+  bottomCollision: 0
   rightCollision: 0
   leftCollision: 0
   collisionRadius: 0.15
-  rightOffset: {x: 0, y: 0}
-  leftOffset: {x: 0, y: 0}
-  topOffset: {x: 0, y: 0}
+  rightOffset: {x: 0.735, y: 0}
+  leftOffset: {x: -0.855, y: 0}
+  bottomOffset: {x: 0, y: -0.855}

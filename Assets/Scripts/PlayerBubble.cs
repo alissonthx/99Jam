@@ -7,7 +7,7 @@ public class PlayerBubble : MonoBehaviour
     private EnemyMovement enemyMovement;
 
     [Space]
-    
+
     [Header("Bubble Stats")]
 
     [SerializeField]
@@ -22,12 +22,15 @@ public class PlayerBubble : MonoBehaviour
 
     private Rigidbody2D rb;
     private SpriteRenderer sr;
+    private BubbleCollision col;
 
     private void Awake()
     {
         anim = GetComponentInChildren<BubbleAnimation>();
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+
+        col = GetComponent<BubbleCollision>();
         playerMove = GetComponent<PlayerMovement>();
         enemyMovement = GetComponent<EnemyMovement>();
         Destroy(gameObject, lifetime);
@@ -36,6 +39,14 @@ public class PlayerBubble : MonoBehaviour
     private void Update()
     {
         rb.velocity = new Vector2(speed, rb.velocity.y - Time.deltaTime * gForce);
+    }
+
+    private void FixedUpdate()
+    {
+        if (col.bottomCollision)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
     }
 
     // bubble
@@ -51,17 +62,9 @@ public class PlayerBubble : MonoBehaviour
         }
     }
 
-    // Bubble collision with ground 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // if touchs layer ground
-        if (collision.gameObject.layer == 8)
-        {
-            // Debug.Log("Bubble touched the ground");
-            // object freeze in the ground
-            rb.constraints = RigidbodyConstraints2D.FreezeAll;
-        }
-        
+
         // if touchs another bubble projects bubble to foward
         if (collision.gameObject.tag == "Bubble2")
         {
