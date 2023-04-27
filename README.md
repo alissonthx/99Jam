@@ -1,2 +1,10 @@
-# 99Jam
-# 2D game make in unity for 99 Jam in 10 days.
+<h1 align="center"> 99 Jam 2D Game Platform </h1>
+<a href=""><img src="./src/Assets/img/player-img.png" alt="player insides bubble" /></a>
+<p align="center"> 2D game make in unity for 99 Jam, in 10 days.</p>
+
+<h2>🚀 Technologies</h2>
+<ul>
+<li>
+Unity 2D Game engine
+</li>	
+<u>
