@@ -8,6 +8,7 @@ public class Animation : MonoBehaviour
     private Animator anim;
     private PlayerMovement playerMove;
     private PlayerCollision coll;
+    
     [HideInInspector]
     public SpriteRenderer sr;
 
