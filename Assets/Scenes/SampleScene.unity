@@ -25220,11 +25220,50 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 271360760}
     m_Modifications:
+    - target: {fileID: 213030908, guid: 5e874488d7f57b24b87faa9bd863c3a5, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 213030908, guid: 5e874488d7f57b24b87faa9bd863c3a5, type: 3}
+      propertyPath: m_Offset.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 5087040942481203027, guid: 5e874488d7f57b24b87faa9bd863c3a5,
         type: 3}
       propertyPath: footstepsAudioSource
       value: 
       objectReference: {fileID: 505718619}
+    - target: {fileID: 6758251086728884451, guid: 5e874488d7f57b24b87faa9bd863c3a5,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758251086728884451, guid: 5e874488d7f57b24b87faa9bd863c3a5,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758251086728884451, guid: 5e874488d7f57b24b87faa9bd863c3a5,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1cf74ea6ca330b24a9d78116fcd61ee6,
+        type: 2}
+    - target: {fileID: 6758251086728884451, guid: 5e874488d7f57b24b87faa9bd863c3a5,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758251086736547042, guid: 5e874488d7f57b24b87faa9bd863c3a5,
+        type: 3}
+      propertyPath: bottomOffset.x
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 6758251086736547042, guid: 5e874488d7f57b24b87faa9bd863c3a5,
+        type: 3}
+      propertyPath: bottomOffset.y
+      value: -0.84
+      objectReference: {fileID: 0}
     - target: {fileID: 6758251086736547046, guid: 5e874488d7f57b24b87faa9bd863c3a5,
         type: 3}
       propertyPath: m_RootOrder
@@ -25233,12 +25272,12 @@ PrefabInstance:
     - target: {fileID: 6758251086736547046, guid: 5e874488d7f57b24b87faa9bd863c3a5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -503.76
+      value: -503.62
       objectReference: {fileID: 0}
     - target: {fileID: 6758251086736547046, guid: 5e874488d7f57b24b87faa9bd863c3a5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -298.736
+      value: -297.71
       objectReference: {fileID: 0}
     - target: {fileID: 6758251086736547046, guid: 5e874488d7f57b24b87faa9bd863c3a5,
         type: 3}

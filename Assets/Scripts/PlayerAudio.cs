@@ -6,11 +6,16 @@ public class PlayerAudio : MonoBehaviour
 {
     [SerializeField]
     private AudioSource footstepsAudioSource;
+    [SerializeField]
     private AudioSource jumpAudioSource;
+
     [SerializeField]
     private AudioClip[] footstepsAudioClipDirt;
+    [SerializeField]
     private AudioClip[] footstepsAudioClipGrass;
+    [SerializeField]
     private AudioClip[] footstepsAudioClipStone;
+    [SerializeField]
     private AudioClip[] footstepsAudioClipJump;
 
     private void Footsteps(string surface)
