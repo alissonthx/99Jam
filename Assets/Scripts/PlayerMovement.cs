@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            anim.SetTrigger("jump");
+            // anim.SetTrigger("jump");
             if (coll.onGround)
                 Jump(Vector2.up);
         }
@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Fire3") && bubbleStage == 1 && coll.onGround && canMove)
         {
             // instantiate bubble 2 
-            anim.SetTrigger("bubble");
+            // anim.SetTrigger("bubble");
             StartCoroutine(DelayBubble(1f));
 
             playerBubble = GetComponent<PlayerBubble>();
@@ -149,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Fire3") && bubbleStage == 2 && coll.onGround && canMove)
         {
             // instantiate bubble 3
-            anim.SetTrigger("bubble");
+            // anim.SetTrigger("bubble");
             StartCoroutine(DelayBubble(1f));
 
             StartCoroutine(Instance(1f, bubblePrefab2));
@@ -164,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && coll.onGround)
         {
-            anim.SetTrigger("inflate");
+            // anim.SetTrigger("inflate");
             timesZPressed++;
 
             if (timesZPressed == 1 && bubbleStage == 0)
@@ -214,13 +214,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(time);
         GameObject b2 = Instantiate(bubblePrefab, bubblePoint.position, Quaternion.identity);
         b2.GetComponent<PlayerBubble>().SetBubbleSide(side);
-    }
-    // IEnumerator Instance2(float time)
-    // {
-    //     yield return new WaitForSeconds(time);
-    //     GameObject b3 = Instantiate(bubblePrefab2, bubblePoint.position, Quaternion.identity);
-    //     b3.GetComponent<PlayerBubble>().SetBubbleSide(side);
-    // }
+    }    
 
     // Coroutine to delay the player respawn
     IEnumerator Respawn()
@@ -235,7 +229,7 @@ public class PlayerMovement : MonoBehaviour
     private void BubbleDash(float x, float y)
     {
         hasDashed = true;
-        anim.SetTrigger("dash");
+        // anim.SetTrigger("dash");
 
         rb.velocity = Vector2.zero;
         Vector2 dir = new Vector2(x, y);
@@ -283,7 +277,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator DefeatEnemy(float time, Collision2D collision)
     {
-        enemyMovement.GetComponent<EnemyAnimation>().animEnemy.SetTrigger("die");
+        // enemyMovement.GetComponent<EnemyAnimation>().animEnemy.SetTrigger("die");
         enemyMovement.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         collision.gameObject.SetActive(false);
         Debug.Log("defeat enemy");
@@ -295,7 +289,7 @@ public class PlayerMovement : MonoBehaviour
         inBubble = true;
         hasDashed = false;
         canMove = false;
-        anim.SetTrigger("insideBubble");
+        // anim.SetTrigger("insideBubble");
         rb.gravityScale = 0;
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -332,7 +326,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Die()
     {
-        anim.SetTrigger("die");
+        // anim.SetTrigger("die");
         canMove = false;
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
