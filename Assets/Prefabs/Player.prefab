@@ -57,7 +57,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758251086091031879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.013, z: 0}
+  m_LocalPosition: {x: 0.107, y: 0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -316,8 +316,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.007
-      minScalar: 0.25
+      scalar: 0.1
+      minScalar: 0.3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -632,7 +632,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     randomizeRotationDirection: 0
-    maxNumParticles: 1000
+    maxNumParticles: 200
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -5171,8 +5171,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   onGround: 0
-  collisionRadius: 0.25
-  bottomOffset: {x: 0.1, y: 0.14}
+  collisionRadius: 0.48
+  bottomOffset: {x: -0.05, y: 0.14}
 --- !u!114 &6758251086736547045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5238,8 +5238,9 @@ PolygonCollider2D:
       - {x: -0.5582137, y: 0.4279952}
       - {x: -0.55141217, y: 0.28272226}
       - {x: -0.5440206, y: 0.15977585}
-      - {x: 0.7140089, y: 0.15673614}
-      - {x: 0.70569754, y: 1.5051417}
+      - {x: 0.44192994, y: 0.14378047}
+      - {x: 0.68299866, y: 0.37294722}
+      - {x: 0.69274116, y: 1.531054}
 --- !u!1 &8846898881284082078
 GameObject:
   m_ObjectHideFlags: 0
@@ -5252,7 +5253,7 @@ GameObject:
   - component: {fileID: 5087040942481203027}
   - component: {fileID: 4254773399318578724}
   m_Layer: 3
-  m_Name: Sound
+  m_Name: Sound(Footsteps)
   m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5308,10 +5309,10 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
