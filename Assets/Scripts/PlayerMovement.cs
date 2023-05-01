@@ -7,7 +7,7 @@ using DG.Tweening;
 public class PlayerMovement : MonoBehaviour
 {
     private PlayerCollision coll;
-    private PlayerController playerController;
+    private GameController gameController;
 
     [Header("Scriptables")]
     [SerializeField]
@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector]
     public Rigidbody2D rb;
     private Animator bubbleAnim;
-
     private Animation anim;
     private PlayerBubble playerBubble;
     private EnemyMovement enemyMovement;
@@ -29,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 14;
 
     [Space]
-    [Header("Booleans")]    
+    [Header("Booleans")]
     private bool earlyGame;
     private bool lateGame;
 
@@ -54,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private GameObject bubblePrefab2;
     [SerializeField]
+    private Transform restartPoint;
+    [SerializeField]
     private Transform bubblePoint;
     [SerializeField]
     private int bubbleStage = 0;
@@ -65,13 +66,11 @@ public class PlayerMovement : MonoBehaviour
     [Header("Polish")]
     public ParticleSystem jumpParticle;
 
-
-
     void Start()
     {
         canMove = true;
         coll = GetComponent<PlayerCollision>();
-        playerController = GetComponent<PlayerController>();
+        gameController = GetComponent<GameController>();
         enemyMovement = GetComponent<EnemyMovement>();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponentInChildren<Animation>();
@@ -80,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        restartPoint =
         bubblePoint = transform.Find("BubblePoint" + side);
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
@@ -92,9 +92,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
-            // anim.SetTrigger("jump");
             if (coll.onGround)
+            {
+                anim.ChangeAnimationState(anim.PLAYER_JUMP);
                 Jump(Vector2.up);
+            }
         }
 
         if (coll.onGround && !groundTouch)
@@ -119,6 +121,57 @@ public class PlayerMovement : MonoBehaviour
             anim.Flip(side);
         }
 
+        // Animation State
+        if (coll.onGround && canMove)
+        {
+            if (x != 0)
+            {
+                anim.ChangeAnimationState(anim.PLAYER_WALK);
+            }
+            else
+            {
+                anim.ChangeAnimationState(anim.PLAYER_IDLE);
+            }
+        }
+
+        // Bubble instantiates 2 and 3 when the stage going 1-2 and 2-3
+        // times pressed Z
+        int timesZPressed = 0;
+
+        if (Input.GetButtonDown("Fire1") && coll.onGround)
+        {
+            // anim.SetTrigger("inflate");
+            anim.ChangeAnimationState(anim.BUBBLE_INFLATE_B2);
+            timesZPressed++;
+
+            if (timesZPressed == 1 && bubbleStage == 0 && canMove)
+            {
+                bubbleStage++;
+                breath1To2 = true;
+
+                StartCoroutine(DelayBubble(1f));
+
+                // first time press Z
+                firstZPressed = true;
+            }
+            if (bubbleStage == 1 && firstZPressed == true && canMove)
+            {
+                anim.ChangeAnimationState(anim.BUBBLE_INFLATE_B3);
+                
+                bubbleStage++;
+                breath2To3 = true;
+
+                StartCoroutine(DelayBubble(1f));
+                
+                firstZPressed = false;
+            }
+            else if (timesZPressed == 2)
+            {
+                timesZPressed = 0;
+                bubbleStage = 0;
+            }
+        }
+
         if (Input.GetButtonDown("Fire2") && !hasDashed && inBubble)
         {
             if (xRaw != 0 || yRaw != 0)
@@ -131,11 +184,11 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Bubble instantiates when player press fire3 button      
-
         if (Input.GetButtonDown("Fire3") && bubbleStage == 1 && coll.onGround && canMove)
         {
             // instantiate bubble 2 
             // anim.SetTrigger("bubble");
+            anim.ChangeAnimationState(anim.BUBBLE_SHOT_B2);
             StartCoroutine(DelayBubble(1f));
 
             playerBubble = GetComponent<PlayerBubble>();
@@ -145,51 +198,19 @@ public class PlayerMovement : MonoBehaviour
             bubbleStage = 0;
             breath1To2 = false;
         }
-        // Bubble instantiates when player press fire3 button
+
+        // Bubble instantiates when player press fire3 button        
         if (Input.GetButtonDown("Fire3") && bubbleStage == 2 && coll.onGround && canMove)
         {
             // instantiate bubble 3
             // anim.SetTrigger("bubble");
+            anim.ChangeAnimationState(anim.BUBBLE_SHOT_B3);
             StartCoroutine(DelayBubble(1f));
 
             StartCoroutine(Instance(1f, bubblePrefab2));
 
             bubbleStage = 1;
             breath2To3 = false;
-        }
-
-        // Bubble instantiates 2 and 3 when the stage going 1-2 and 2-3
-        // times pressed Z
-        int timesZPressed = 0;
-
-        if (Input.GetButtonDown("Fire1") && coll.onGround)
-        {
-            // anim.SetTrigger("inflate");
-            timesZPressed++;
-
-            if (timesZPressed == 1 && bubbleStage == 0)
-            {
-                bubbleStage++;
-                breath1To2 = true;
-                StartCoroutine(DelayBubble(1f));
-                // Debug.Log("bubble2");
-
-                // first time press Z
-                firstZPressed = true;
-            }
-            else if (bubbleStage == 1 && firstZPressed == true)
-            {
-                bubbleStage++;
-                breath2To3 = true;
-                StartCoroutine(DelayBubble(1f));
-                Debug.Log("bubble3");
-                firstZPressed = false;
-            }
-            else if (timesZPressed == 1)
-            {
-                timesZPressed = 0;
-                bubbleStage = 0;
-            }
         }
     }
 
@@ -202,11 +223,6 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(time);
         canMove = true;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
-
-    }
-    IEnumerator Delay(float time)
-    {
-        yield return new WaitForSeconds(time);
     }
 
     IEnumerator Instance(float time, GameObject bubblePrefab)
@@ -214,13 +230,13 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(time);
         GameObject b2 = Instantiate(bubblePrefab, bubblePoint.position, Quaternion.identity);
         b2.GetComponent<PlayerBubble>().SetBubbleSide(side);
-    }    
+    }
 
     // Coroutine to delay the player respawn
     IEnumerator Respawn()
     {
         yield return new WaitForSeconds(1.1f);
-        transform.position = new Vector3(0, 0, 0);
+        transform.position = restartPoint.position;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         canMove = true;
     }
@@ -229,7 +245,7 @@ public class PlayerMovement : MonoBehaviour
     private void BubbleDash(float x, float y)
     {
         hasDashed = true;
-        // anim.SetTrigger("dash");
+        // anim.SetTrigger("dash");        
 
         rb.velocity = Vector2.zero;
         Vector2 dir = new Vector2(x, y);
@@ -290,6 +306,7 @@ public class PlayerMovement : MonoBehaviour
         hasDashed = false;
         canMove = false;
         // anim.SetTrigger("insideBubble");
+        anim.ChangeAnimationState(anim.PLAYER_INSIDE);
         rb.gravityScale = 0;
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -327,6 +344,7 @@ public class PlayerMovement : MonoBehaviour
     private void Die()
     {
         // anim.SetTrigger("die");
+        anim.ChangeAnimationState(anim.PLAYER_DIE);
         canMove = false;
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -337,8 +355,8 @@ public class PlayerMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
-        {            
-            Die();            
+        {
+            Die();
         }
 
         if (collision.gameObject.CompareTag("Bubble2") && !coll.onGround)

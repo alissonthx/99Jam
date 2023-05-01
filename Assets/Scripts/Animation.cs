@@ -14,22 +14,39 @@ public class Animation : MonoBehaviour
 
     #region Animation States
     private string currentAnimaton;
-    const string PLAYER_IDLE = "player_idle";
-    const string PLAYER_IDLE_B2 = "player_idle_b2";
-    const string PLAYER_IDLE_B3 = "player_idle_b3";
-    const string PLAYER_WALK = "player_walk";
-    const string PLAYER_WALK_B2 = "player_walk_b2";
-    const string PLAYER_WALK_B3 = "player_walk_b3";
-    const string PLAYER_JUMP = "player_jump";
-    const string PLAYER_JUMP_B2 = "player_jump_b2";
-    const string PLAYER_JUMP_B3 = "player_jump_b3";
-    const string PLAYER_FALL = "player_fall";
-    const string PLAYER_INSIDE = "player_inside";
-    const string BUBBLE_INFLATE_B2 = "bubble_inflate_b2";
-    const string BUBBLE_INFLATE_B3 = "bubble_inflate_b3";
-    const string BUBBLE_SHOT_B2 = "bubble_shot_b2";
-    const string BUBBLE_SHOT_B3 = "bubble_shot_b3";
-    const string PLAYER_DIE = "player_die";
+    [HideInInspector]
+    public string PLAYER_IDLE = "player_idle";
+    [HideInInspector]
+    public string PLAYER_IDLE_B2 = "player_idle_b2";
+    [HideInInspector]
+    public string PLAYER_IDLE_B3 = "player_idle_b3";
+    [HideInInspector]
+    public string PLAYER_WALK = "player_walk";
+    [HideInInspector]
+    public string PLAYER_WALK_B2 = "player_walk_b2";
+    [HideInInspector]
+    public string PLAYER_WALK_B3 = "player_walk_b3";
+    [HideInInspector]
+    public string PLAYER_JUMP = "player_jump";
+    [HideInInspector]
+    public string PLAYER_JUMP_B2 = "player_jump_b2";
+    [HideInInspector]
+    public string PLAYER_JUMP_B3 = "player_jump_b3";
+    [HideInInspector]
+    public string PLAYER_FALL = "player_fall";    
+    
+    [HideInInspector]
+    public string PLAYER_INSIDE = "player_inside";
+    [HideInInspector]
+    public string BUBBLE_INFLATE_B2 = "bubble_inflate_b2";
+    [HideInInspector]
+    public string BUBBLE_INFLATE_B3 = "bubble_inflate_b3";
+    [HideInInspector]
+    public string BUBBLE_SHOT_B2 = "bubble_shot_b2";
+    [HideInInspector]
+    public string BUBBLE_SHOT_B3 = "bubble_shot_b3";
+    [HideInInspector]
+    public string PLAYER_DIE = "player_die";
     #endregion
 
 
@@ -46,8 +63,8 @@ public class Animation : MonoBehaviour
     {
         anim.SetBool("onGround", coll.onGround);
         anim.SetBool("canMove", playerMove.canMove);
-        anim.SetBool("breath1-2", playerMove.breath1To2);
-        anim.SetBool("breath2-3", playerMove.breath2To3);
+        // anim.SetBool("breath1-2", playerMove.breath1To2);
+        // anim.SetBool("breath2-3", playerMove.breath2To3);
     }
 
     public void SetHorizontalMovement(float x, float y, float yVel)
@@ -57,18 +74,13 @@ public class Animation : MonoBehaviour
         anim.SetFloat("VerticalVelocity", yVel);
     }
 
-    private void ChangeAnimationState(string newAnimation)
+    public void ChangeAnimationState(string newAnimation)
     {
         if (currentAnimaton == newAnimation) return;
 
         anim.Play(newAnimation);
         currentAnimaton = newAnimation;
     }
-
-    // public void SetTrigger(string trigger)
-    // {
-    //     anim.SetTrigger(trigger);
-    // }
 
     public AnimatorStateInfo GetCurrentAnimatorStateInfo()
     {
