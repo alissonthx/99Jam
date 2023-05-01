@@ -9,10 +9,10 @@ public class VolumeController : MonoBehaviour
     private float volumeMaster, volumeSFX, volumeMusic;
     [SerializeField]
     private Slider sliderMaster, sliderSFX, sliderMusic;
-    [SerializeField]
-    private GameObject[] SFX;
-    [SerializeField]
-    private GameObject[] Music;
+    // [SerializeField]
+    // private GameObject[] SFX;
+    // [SerializeField]
+    // private GameObject[] Music;
 
     private void Start()
     {
