@@ -4956,6 +4956,7 @@ GameObject:
   - component: {fileID: 6758251086728884451}
   - component: {fileID: 6758251086728884448}
   - component: {fileID: 6758251086728884449}
+  - component: {fileID: 4630806817907830783}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -5079,6 +5080,24 @@ MonoBehaviour:
   BUBBLE_SHOT_B2: bubble_shot_b2
   BUBBLE_SHOT_B3: bubble_shot_b3
   PLAYER_DIE: player_die
+--- !u!114 &4630806817907830783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6758251086728884453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7533411f5671ed74699ab69477ae8276, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  footstepsAudioSource: {fileID: 0}
+  jumpAudioSource: {fileID: 0}
+  footstepsAudioClipDirt: []
+  footstepsAudioClipGrass: []
+  footstepsAudioClipStone: []
+  footstepsAudioClipJump: []
 --- !u!1 &6758251086736547067
 GameObject:
   m_ObjectHideFlags: 0
@@ -5171,6 +5190,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   onGround: 0
+  surface: 
   collisionRadius: 0.48
   bottomOffset: {x: -0.05, y: 0.14}
 --- !u!114 &6758251086736547045
@@ -5194,8 +5214,6 @@ MonoBehaviour:
   inBubble: 0
   hasDashed: 0
   isDashing: 0
-  breath1To2: 0
-  breath2To3: 0
   side: 1
   bump: 22
   bubblePrefab1: {fileID: 2611579679675709674, guid: 25041c9bb91685942823a36d07f83170,
@@ -5250,10 +5268,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4160385959457166501}
-  - component: {fileID: 5087040942481203027}
   - component: {fileID: 4254773399318578724}
   m_Layer: 3
-  m_Name: Sound(Footsteps)
+  m_Name: Sound
   m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5266,7 +5283,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8846898881284082078}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5274,30 +5291,6 @@ Transform:
   m_Father: {fileID: 6758251086736547046}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5087040942481203027
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8846898881284082078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7533411f5671ed74699ab69477ae8276, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  footstepsAudioSource: {fileID: 0}
-  jumpAudioSource: {fileID: 0}
-  footstepsAudioClipDirt:
-  - {fileID: 8300000, guid: 8915f6a332c50e34186a7630e5412b85, type: 3}
-  - {fileID: 8300000, guid: 0dc64f91dc899e647aa0ac2d866aea79, type: 3}
-  - {fileID: 8300000, guid: 23fb48f3d86ba1649b38635ef9ef4eaa, type: 3}
-  - {fileID: 8300000, guid: 6a4c9b5b0c442b64a9d6827432ef0e93, type: 3}
-  - {fileID: 8300000, guid: 5c0f9bc5a76821047886a99d014278a4, type: 3}
-  - {fileID: 8300000, guid: 8c379606810a22d40aa7ba26270d86c7, type: 3}
-  footstepsAudioClipGrass: []
-  footstepsAudioClipStone: []
-  footstepsAudioClipJump: []
 --- !u!82 &4254773399318578724
 AudioSource:
   m_ObjectHideFlags: 0

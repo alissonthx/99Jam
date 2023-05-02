@@ -36,10 +36,8 @@ public class PlayerMovement : MonoBehaviour
     public bool inBubble;
     public bool hasDashed;
     public bool isDashing;
-    public bool breath1To2;
-    public bool breath2To3;
-
     private bool groundTouch;
+
     [Space]
 
     public int side = 1;
@@ -88,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         Vector2 dir = new Vector2(x, y);
 
         Walk(dir);
-        anim.SetHorizontalMovement(x, y, rb.velocity.y);
+        // anim.SetHorizontalMovement(x, y, rb.velocity.y);
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -114,25 +112,19 @@ public class PlayerMovement : MonoBehaviour
         {
             side = 1;
             anim.Flip(side);
+            anim.SetBubbleAnim(bubbleStage, "walk");
         }
         if (x < 0 && canMove)
         {
             side = -1;
             anim.Flip(side);
+            anim.SetBubbleAnim(bubbleStage, "walk");
         }
 
-        // Animation State
-        if (coll.onGround && canMove)
-        {
-            if (x != 0)
-            {
-                anim.ChangeAnimationState(anim.PLAYER_WALK);
-            }
-            else
-            {
-                anim.ChangeAnimationState(anim.PLAYER_IDLE);
-            }
-        }
+        // Idle Animation State
+        if (x == 0 && coll.onGround && canMove)
+            anim.SetBubbleAnim(bubbleStage, "idle");
+
 
         // Bubble instantiates 2 and 3 when the stage going 1-2 and 2-3
         // times pressed Z
@@ -140,29 +132,25 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && coll.onGround)
         {
-            // anim.SetTrigger("inflate");
             anim.ChangeAnimationState(anim.BUBBLE_INFLATE_B2);
             timesZPressed++;
 
             if (timesZPressed == 1 && bubbleStage == 0 && canMove)
             {
                 bubbleStage++;
-                breath1To2 = true;
 
                 StartCoroutine(DelayBubble(1f));
 
-                // first time press Z
                 firstZPressed = true;
             }
             if (bubbleStage == 1 && firstZPressed == true && canMove)
             {
                 anim.ChangeAnimationState(anim.BUBBLE_INFLATE_B3);
-                
+
                 bubbleStage++;
-                breath2To3 = true;
 
                 StartCoroutine(DelayBubble(1f));
-                
+
                 firstZPressed = false;
             }
             else if (timesZPressed == 2)
@@ -183,11 +171,8 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        // Bubble instantiates when player press fire3 button      
         if (Input.GetButtonDown("Fire3") && bubbleStage == 1 && coll.onGround && canMove)
         {
-            // instantiate bubble 2 
-            // anim.SetTrigger("bubble");
             anim.ChangeAnimationState(anim.BUBBLE_SHOT_B2);
             StartCoroutine(DelayBubble(1f));
 
@@ -196,21 +181,18 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(Instance(1f, bubblePrefab1));
 
             bubbleStage = 0;
-            breath1To2 = false;
         }
 
         // Bubble instantiates when player press fire3 button        
         if (Input.GetButtonDown("Fire3") && bubbleStage == 2 && coll.onGround && canMove)
         {
-            // instantiate bubble 3
-            // anim.SetTrigger("bubble");
+            // instantiate bubble 3            
             anim.ChangeAnimationState(anim.BUBBLE_SHOT_B3);
             StartCoroutine(DelayBubble(1f));
 
             StartCoroutine(Instance(1f, bubblePrefab2));
 
             bubbleStage = 1;
-            breath2To3 = false;
         }
     }
 
@@ -245,16 +227,15 @@ public class PlayerMovement : MonoBehaviour
     private void BubbleDash(float x, float y)
     {
         hasDashed = true;
-        // anim.SetTrigger("dash");        
 
         rb.velocity = Vector2.zero;
         Vector2 dir = new Vector2(x, y);
 
         rb.velocity += dir.normalized * dashForce;
-        StartCoroutine(bubbleDashWait(0.3f));
+        StartCoroutine(BubbleDashWait(0.3f));
     }
 
-    IEnumerator bubbleDashWait(float t)
+    IEnumerator BubbleDashWait(float t)
     {
         FindObjectOfType<GhostTrail>().ShowGhost();
 
@@ -280,7 +261,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    IEnumerator bubbleJump()
+    public IEnumerator BubbleJump()
     {
         GetComponent<BetterJumping>().enabled = false;
 
@@ -293,19 +274,17 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator DefeatEnemy(float time, Collision2D collision)
     {
-        // enemyMovement.GetComponent<EnemyAnimation>().animEnemy.SetTrigger("die");
         enemyMovement.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         collision.gameObject.SetActive(false);
         Debug.Log("defeat enemy");
         yield return new WaitForSeconds(time);
     }
 
-    private void InsideBubble()
+    public void InsideBubble()
     {
         inBubble = true;
         hasDashed = false;
         canMove = false;
-        // anim.SetTrigger("insideBubble");
         anim.ChangeAnimationState(anim.PLAYER_INSIDE);
         rb.gravityScale = 0;
         rb.velocity = Vector2.zero;
@@ -341,33 +320,12 @@ public class PlayerMovement : MonoBehaviour
         particle.Play();
     }
 
-    private void Die()
+    public void Die()
     {
-        // anim.SetTrigger("die");
         anim.ChangeAnimationState(anim.PLAYER_DIE);
         canMove = false;
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;
         StartCoroutine(Respawn());
     }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Die();
-        }
-
-        if (collision.gameObject.CompareTag("Bubble2") && !coll.onGround)
-        {
-            StartCoroutine(bubbleJump());
-        }
-        if (collision.gameObject.CompareTag("Bubble3"))
-        {
-            InsideBubble();
-            collision.gameObject.SetActive(false);
-        }
-    }
-
 }

@@ -8,6 +8,7 @@ public class Animation : MonoBehaviour
     private Animator anim;
     private PlayerMovement playerMove;
     private PlayerCollision coll;
+    private PlayerAudio playerAudio;
 
     [HideInInspector]
     public SpriteRenderer sr;
@@ -33,8 +34,8 @@ public class Animation : MonoBehaviour
     [HideInInspector]
     public string PLAYER_JUMP_B3 = "player_jump_b3";
     [HideInInspector]
-    public string PLAYER_FALL = "player_fall";    
-    
+    public string PLAYER_FALL = "player_fall";
+
     [HideInInspector]
     public string PLAYER_INSIDE = "player_inside";
     [HideInInspector]
@@ -54,24 +55,42 @@ public class Animation : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+        playerAudio = GetComponent<PlayerAudio>();
         coll = GetComponentInParent<PlayerCollision>();
         playerMove = GetComponentInParent<PlayerMovement>();
+
+
         sr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        anim.SetBool("onGround", coll.onGround);
-        anim.SetBool("canMove", playerMove.canMove);
-        // anim.SetBool("breath1-2", playerMove.breath1To2);
-        // anim.SetBool("breath2-3", playerMove.breath2To3);
+        
     }
 
-    public void SetHorizontalMovement(float x, float y, float yVel)
+    public void SetBubbleAnim(int bubble, string state)
     {
-        anim.SetFloat("HorizontalAxis", x);
-        anim.SetFloat("VerticalAxis", y);
-        anim.SetFloat("VerticalVelocity", yVel);
+        switch (bubble, state)
+        {
+            case (0, "idle"):
+                ChangeAnimationState(PLAYER_IDLE);
+                break;
+            case (1, "idle"):
+                ChangeAnimationState(PLAYER_IDLE_B2);
+                break;
+            case (2, "idle"):
+                ChangeAnimationState(PLAYER_IDLE_B3);
+                break;
+            case (0, "walk"):
+                ChangeAnimationState(PLAYER_WALK);
+                break;
+            case (1, "walk"):
+                ChangeAnimationState(PLAYER_WALK_B2);
+                break;
+            case (2, "walk"):
+                ChangeAnimationState(PLAYER_WALK_B3);
+                break;
+        }
     }
 
     public void ChangeAnimationState(string newAnimation)

@@ -16,7 +16,7 @@ public class RoomManager : MonoBehaviour
             string roomName = gameObject.name;
             char roomNumber = roomName.Substring(roomName.Length - 1, 1)[0];
             currentRoom = int.Parse(roomNumber.ToString());
-            Debug.Log("Player entered room " + currentRoom);
+            // Debug.Log("Player entered room " + currentRoom);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

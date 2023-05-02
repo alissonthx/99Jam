@@ -16,11 +16,17 @@ public class PlayerAudio : MonoBehaviour
     [SerializeField]
     private AudioClip[] footstepsAudioClipStone;
     [SerializeField]
-    private AudioClip[] footstepsAudioClipJump;
+    private AudioClip[] footstepsAudioClipJump;  
+    private PlayerCollision coll;
 
-    private void Footsteps(string surface)
+    void Start()
     {
-        switch (surface)
+        coll = GetComponentInParent<PlayerCollision>();
+    }  
+
+    private void Footsteps()
+    {
+        switch (coll.surface)
         {
             case "Dirt":
                 footstepsAudioSource.PlayOneShot(footstepsAudioClipDirt[(Random.Range(0, footstepsAudioClipDirt.Length))]);
@@ -28,7 +34,7 @@ public class PlayerAudio : MonoBehaviour
             case "Grass":
                 footstepsAudioSource.PlayOneShot(footstepsAudioClipGrass[(Random.Range(0, footstepsAudioClipGrass.Length))]);
                 break;
-            case "DirtStone":
+            case "Stone":
                 footstepsAudioSource.PlayOneShot(footstepsAudioClipStone[(Random.Range(0, footstepsAudioClipStone.Length))]);
                 break;
         }
