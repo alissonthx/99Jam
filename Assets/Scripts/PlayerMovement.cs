@@ -224,6 +224,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(1.1f);
         transform.position = restartPoint.position;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        GetComponent<SpriteRenderer>();
         canMove = true;
     }
 
