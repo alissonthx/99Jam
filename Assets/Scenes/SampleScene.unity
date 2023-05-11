@@ -274,7 +274,7 @@ GameObject:
   - component: {fileID: 46773777}
   m_Layer: 8
   m_Name: Tilemap Ground
-  m_TagString: Stone
+  m_TagString: Grass
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14533,12 +14533,12 @@ PrefabInstance:
     - target: {fileID: 6758251086736547046, guid: 5e874488d7f57b24b87faa9bd863c3a5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -506.69
+      value: -504.04
       objectReference: {fileID: 0}
     - target: {fileID: 6758251086736547046, guid: 5e874488d7f57b24b87faa9bd863c3a5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -297.75
+      value: -297.79
       objectReference: {fileID: 0}
     - target: {fileID: 6758251086736547046, guid: 5e874488d7f57b24b87faa9bd863c3a5,
         type: 3}
@@ -14871,7 +14871,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330383674}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 56.03, y: -6.525324, z: 0.4232477}
+  m_LocalPosition: {x: 15.39, y: 16.62, z: 0.4232477}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -21197,7 +21197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2126238055}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 495.679, y: 291.82938, z: 5.0415263}
+  m_LocalPosition: {x: 495.2, y: 292, z: 5.0415263}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
