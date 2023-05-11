@@ -39,10 +39,10 @@ public class PlayerMovement : MonoBehaviour
     private bool groundTouch;
 
     [Space]
-
     public int side = 1;
 
     [Space]
+
     [Header("Bubble Settings")]
     [SerializeField]
     private float bump = 10f;
@@ -86,7 +86,6 @@ public class PlayerMovement : MonoBehaviour
         Vector2 dir = new Vector2(x, y);
 
         Walk(dir);
-        // anim.SetHorizontalMovement(x, y, rb.velocity.y);
 
         if (Input.GetButtonDown("Jump"))
         {
@@ -94,6 +93,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 anim.ChangeAnimationState(anim.PLAYER_JUMP);
                 Jump(Vector2.up);
+            }
+            else
+            {
+                  
             }
         }
 
@@ -114,6 +117,7 @@ public class PlayerMovement : MonoBehaviour
             anim.Flip(side);
             anim.SetBubbleAnim(bubbleStage, "walk");
         }
+
         if (x < 0 && canMove)
         {
             side = -1;

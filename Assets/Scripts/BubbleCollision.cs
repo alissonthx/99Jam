@@ -5,7 +5,7 @@ using UnityEngine;
 public class BubbleCollision : MonoBehaviour
 {
  [Header("Layers")]
-    public LayerMask Player;
+    public LayerMask layerMask;
 
     public bool bottomCollision;
     public bool rightCollision;
@@ -22,9 +22,9 @@ public class BubbleCollision : MonoBehaviour
 
     void Update()
     {
-        bottomCollision = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, collisionRadius, Player);
-        rightCollision = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, Player);
-        leftCollision = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, Player);
+        bottomCollision = Physics2D.OverlapCircle((Vector2)transform.position + bottomOffset, collisionRadius, layerMask);
+        rightCollision = Physics2D.OverlapCircle((Vector2)transform.position + rightOffset, collisionRadius, layerMask);
+        leftCollision = Physics2D.OverlapCircle((Vector2)transform.position + leftOffset, collisionRadius, layerMask);
     }
 
     void OnDrawGizmos()

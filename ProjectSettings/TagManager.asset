@@ -9,6 +9,9 @@ TagManager:
   - Bubble2
   - SFX
   - Music
+  - Dirt
+  - Stone
+  - Grass
   layers:
   - Default
   - TransparentFX
