@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private PlayerCollision coll;
+    private PlayerCollision coll;    
     private GameController gameController;
 
     [Header("Scriptables")]
@@ -41,6 +41,13 @@ public class PlayerMovement : MonoBehaviour
     [Space]
     public int side = 1;
 
+    [Space]    
+    [Header("Room Settings")]
+    [SerializeField]
+    private Transform[] restartPoints;
+    private Transform restartPoint;
+    private int _room;
+
     [Space]
 
     [Header("Bubble Settings")]
@@ -50,8 +57,6 @@ public class PlayerMovement : MonoBehaviour
     private GameObject bubblePrefab1;
     [SerializeField]
     private GameObject bubblePrefab2;
-    [SerializeField]
-    private Transform restartPoint;
     [SerializeField]
     private Transform bubblePoint;
     [SerializeField]
@@ -66,6 +71,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        // _room = 1;
         canMove = true;
         coll = GetComponent<PlayerCollision>();
         gameController = GetComponent<GameController>();
@@ -77,7 +83,9 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        restartPoint =
+        _room = coll._currentRoom;
+        restartPoint = restartPoints[_room];
+
         bubblePoint = transform.Find("BubblePoint" + side);
         float x = Input.GetAxis("Horizontal");
         float y = Input.GetAxis("Vertical");
@@ -96,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                  
+
             }
         }
 
@@ -324,10 +332,13 @@ public class PlayerMovement : MonoBehaviour
 
         particle.Play();
     }
-
+    private void Transition(){
+        anim.SceneTransition();
+    }
     public void Die()
     {
         anim.ChangeAnimationState(anim.PLAYER_DIE);
+        Invoke("Transition", 0.5f);
         canMove = false;
         rb.velocity = Vector2.zero;
         rb.constraints = RigidbodyConstraints2D.FreezeAll;

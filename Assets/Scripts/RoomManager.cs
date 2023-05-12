@@ -6,7 +6,9 @@ public class RoomManager : MonoBehaviour
 {
     [SerializeField]
     private GameObject vcam;
-    public int currentRoom;
+    [SerializeField]
+    private int currentRoom;    
+    public int _currentRoom => currentRoom;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

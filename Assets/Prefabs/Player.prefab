@@ -5130,7 +5130,7 @@ GameObject:
   - component: {fileID: 6758251086736547042}
   - component: {fileID: 6758251086736547045}
   - component: {fileID: 213030908}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5287,7 +5287,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4160385959457166501}
   - component: {fileID: 4254773399318578724}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Sound
   m_TagString: SFX
   m_Icon: {fileID: 0}

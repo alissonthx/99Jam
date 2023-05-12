@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCollision : MonoBehaviour
 {
+    private int currentRoom;
+    public int _currentRoom => currentRoom;
 
     [Header("Layers")]
     public LayerMask groundLayer;
@@ -56,7 +58,7 @@ public class PlayerCollision : MonoBehaviour
                 break;
             case "Enemy":
                 playerMove.Die();
-                break;
+                break;            
             case "Bubble2":
                 if (!onGround)
                 {
@@ -67,6 +69,15 @@ public class PlayerCollision : MonoBehaviour
                 playerMove.InsideBubble();
                 collision.gameObject.SetActive(false);
                 break;
+        }
+    }
+
+    private void OnTriggerEnter2D (Collider2D other){
+        if(other.gameObject.tag == "Room"){
+            string roomName = other.gameObject.name;
+            char roomNumber = roomName.Substring(roomName.Length - 1, 1)[0];
+            int room = int.Parse(roomNumber.ToString());
+            currentRoom = room;
         }
     }
 }

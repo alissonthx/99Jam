@@ -9,6 +9,8 @@ public class Animation : MonoBehaviour
     private PlayerMovement playerMove;
     private PlayerCollision coll;
     private PlayerAudio playerAudio;
+    [SerializeField]
+    private GameObject loader;
 
     [HideInInspector]
     public SpriteRenderer sr;
@@ -63,11 +65,6 @@ public class Animation : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
     }
 
-    void Update()
-    {
-        
-    }
-
     public void SetBubbleAnim(int bubble, string state)
     {
         switch (bubble, state)
@@ -104,6 +101,10 @@ public class Animation : MonoBehaviour
     public AnimatorStateInfo GetCurrentAnimatorStateInfo()
     {
         return anim.GetCurrentAnimatorStateInfo(0);
+    }
+
+    public void SceneTransition(){
+        loader.GetComponentInChildren<Animator>().SetTrigger("transition");
     }
 
     public void Flip(int side)
