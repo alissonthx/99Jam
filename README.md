@@ -24,3 +24,8 @@ Unity 2D Game engine
 C#
 </li>	
 <u>
+<br>
+  <h2>Credits</h2>
+  <p>Sound Effects <a href="https://twitter.com/Thameuszin">Twitter</a></p>
+  <p>Music <a href="https://twitter.com/guigagliardo">Twitter</a></p>
+  <p>Pixel Art <a href="https://twitter.com/redfellow_">Twitter</a></p>
