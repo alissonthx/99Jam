@@ -51,9 +51,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0003849268, y: 0.0075531006}
+  m_Offset: {x: 0.067, y: -0.26}
   serializedVersion: 2
-  m_Radius: 0.74583435
+  m_Radius: 0.73149836
 --- !u!50 &1511593881041616180
 Rigidbody2D:
   serializedVersion: 4
@@ -93,8 +93,8 @@ MonoBehaviour:
   rightCollision: 0
   leftCollision: 0
   collisionRadius: 0.15
-  rightOffset: {x: 0.8, y: 0}
-  leftOffset: {x: -0.8, y: 0}
+  rightOffset: {x: 0.87, y: -0.28}
+  leftOffset: {x: -0.75, y: -0.28}
 --- !u!114 &1511593881041616206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,12 +187,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e74740628296b2e4d9fe8d7074846741, type: 2}
+  m_Sprite: {fileID: 21300000, guid: 418539eee76a7e347969ad54576989df, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.625, y: 1.5}
+  m_Size: {x: 6, y: 6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

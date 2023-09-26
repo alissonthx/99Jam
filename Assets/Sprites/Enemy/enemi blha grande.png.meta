@@ -108,10 +108,10 @@ TextureImporter:
       name: enemi blha grande_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 16
-        width: 18
-        height: 18
+        x: 0
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,10 +129,10 @@ TextureImporter:
       name: enemi blha grande_1
       rect:
         serializedVersion: 2
-        x: 63
-        y: 16
-        width: 18
-        height: 18
+        x: 48
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: enemi blha grande_2
       rect:
         serializedVersion: 2
-        x: 111
-        y: 16
-        width: 18
-        height: 18
+        x: 96
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +171,10 @@ TextureImporter:
       name: enemi blha grande_3
       rect:
         serializedVersion: 2
-        x: 159
-        y: 16
-        width: 18
-        height: 18
+        x: 144
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: enemi blha grande_4
       rect:
         serializedVersion: 2
-        x: 207
-        y: 16
-        width: 18
-        height: 18
+        x: 192
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +213,10 @@ TextureImporter:
       name: enemi blha grande_5
       rect:
         serializedVersion: 2
-        x: 255
-        y: 16
-        width: 18
-        height: 18
+        x: 240
+        y: 0
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
