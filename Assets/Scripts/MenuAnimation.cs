@@ -7,7 +7,7 @@ public class MenuAnimation : MonoBehaviour
     [SerializeField]
     private MenuButtonController menuButtonController;
     public bool disableOnce;
-    private void PlaySound(AudioClip wichSound)
+    public void PlaySound(AudioClip wichSound)
     {
         if (!disableOnce)
         {
