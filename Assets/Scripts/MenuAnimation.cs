@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class MenuAnimation : MonoBehaviour
 {
-    [SerializeFields]
+    [SerializeField]
     private MenuButtonController menuButtonController;
     public bool disableOnce;
-    if(!disableOnce){
-        menuButtonController.audioSource.PlayOneShot(wichSound);
-    }else{
-        disableOnce = false;
+    private void PlaySound(AudioClip wichSound)
+    {
+        if (!disableOnce)
+        {
+            menuButtonController.audioSource.PlayOneShot(wichSound);
+        }
+        else
+        {
+            disableOnce = false;
+        }
     }
 }

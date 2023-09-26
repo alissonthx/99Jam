@@ -16,15 +16,15 @@ public class MenuButton : MonoBehaviour
     {
         if (menuButtonController.index == thisIndex)
         {
-            animatorFunctions.SetBool("selected", true);
+            anim.SetBool("selected", true);
             if (Input.GetAxis("Submit") == 1)
             {
                 anim.SetBool("pressed", true);
             }
-            else if (animatorFunctions.GetBool("pressed"))
+            else if (anim.GetBool("pressed"))
             {
                 anim.SetBool("pressed", false);
-                animatorFunctions.disableOnce = true;
+                menuAnimation.disableOnce = true;
             }
         }
         else
