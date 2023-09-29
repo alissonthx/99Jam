@@ -147,7 +147,7 @@ Animator:
   m_GameObject: {fileID: 6184490927871546083}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 97de173c883c9ca41a943350359e6e99, type: 2}
+  m_Controller: {fileID: 9100000, guid: 5fdbaed721a3307458afc93c4cbf1bcb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -187,7 +187,7 @@ MonoBehaviour:
   menuButtonController: {fileID: 0}
   anim: {fileID: 1081335080711879841}
   menuAnimation: {fileID: 8725371002360654217}
-  thisIndex: 0
+  thisIndex: 2
 --- !u!1 &6184490927890903133
 GameObject:
   m_ObjectHideFlags: 0
