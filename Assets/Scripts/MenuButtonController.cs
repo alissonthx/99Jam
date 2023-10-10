@@ -19,26 +19,29 @@ public class MenuButtonController : MonoBehaviour
     {
         if (Input.GetAxis("Vertical") != 0)
         {
-            if (Input.GetAxis("Vertical") < 0)
+            if (!keyDown)
             {
-                if (index < maxIndex)
+                if (Input.GetAxis("Vertical") < 0)
                 {
-                    index++;
+                    if (index < maxIndex)
+                    {
+                        index++;
+                    }
+                    else
+                    {
+                        index = 0;
+                    }
                 }
-                else
+                else if (Input.GetAxis("Vertical") > 0)
                 {
-                    index = 0;
-                }
-            }
-            else if (Input.GetAxis("Vertical") > 0)
-            {
-                if (index > 0)
-                {
-                    index--;
-                }
-                else
-                {
-                    index = maxIndex;
+                    if (index > 0)
+                    {
+                        index--;
+                    }
+                    else
+                    {
+                        index = maxIndex;
+                    }
                 }
                 keyDown = true;
             }

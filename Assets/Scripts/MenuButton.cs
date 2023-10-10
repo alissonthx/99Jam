@@ -11,7 +11,7 @@ public class MenuButton : MonoBehaviour
     [SerializeField]
     private MenuAnimation menuAnimation;
     [SerializeField]
-    private int thisIndex;
+    private int thisIndex;        
     void Update()
     {
         if (menuButtonController.index == thisIndex)
@@ -32,4 +32,5 @@ public class MenuButton : MonoBehaviour
             anim.SetBool("selected", false);
         }
     }
+
 }
