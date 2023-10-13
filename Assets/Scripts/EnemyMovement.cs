@@ -9,10 +9,6 @@ public class EnemyMovement : MonoBehaviour
     public Rigidbody2D rbEnemy;
     private SpriteRenderer sr;
 
-    [Header("Scriptables")]
-    [SerializeField]
-    private EnemyReference enemyReference;
-
     [Header("Stats")]
     public int side = 1;
 
@@ -44,8 +40,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void EnemyOutsideBubble()
     {
-        animEnemy.SetTrigger("setExitBubble");
-        enemyReference.enemyInside = false;        
+        animEnemy.SetTrigger("setExitBubble");                
         rbEnemy.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
@@ -53,7 +48,6 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bubble2")
         {
-            enemyReference.enemyInside = true;
             StartCoroutine(EnemyInsideBubble(3f));
             collision.gameObject.SetActive(false);
         }

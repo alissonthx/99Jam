@@ -7,11 +7,7 @@ using DG.Tweening;
 public class PlayerMovement : MonoBehaviour
 {
     private PlayerCollision coll;    
-    private GameController gameController;
-
-    [Header("Scriptables")]
-    [SerializeField]
-    private EnemyReference enemyReference;
+    private GameController gameController;    
 
     [HideInInspector]
     public Rigidbody2D rb;
