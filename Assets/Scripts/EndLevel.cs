@@ -20,7 +20,7 @@ public class EndLevel : MonoBehaviour
             director.Play();
             cutsceneAnim1.SetTrigger("cutscene");
             cutsceneAnim2.SetTrigger("cutscene");
-            Invoke("RestartGame", 4.0f);            
+            Invoke("RestartGame", 5f);            
         }
     }
 
