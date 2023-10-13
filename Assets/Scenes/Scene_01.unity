@@ -38996,6 +38996,46 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 782307169552700964, guid: 99ee4474966e74745b9c63e663124a68,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 2389.8696
+      objectReference: {fileID: 0}
+    - target: {fileID: 877118550316627099, guid: 99ee4474966e74745b9c63e663124a68,
+        type: 3}
+      propertyPath: m_Name
+      value: ImageDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 1150911219485856084, guid: 99ee4474966e74745b9c63e663124a68,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3278794433757492691, guid: 99ee4474966e74745b9c63e663124a68,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -1080.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3278794433757492691, guid: 99ee4474966e74745b9c63e663124a68,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -540.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742041212184054009, guid: 99ee4474966e74745b9c63e663124a68,
+        type: 3}
+      propertyPath: m_Name
+      value: FullFade
+      objectReference: {fileID: 0}
+    - target: {fileID: 3742041212184054009, guid: 99ee4474966e74745b9c63e663124a68,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7062197080085119822, guid: 99ee4474966e74745b9c63e663124a68,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8690908505403020390, guid: 99ee4474966e74745b9c63e663124a68,
         type: 3}
       propertyPath: m_Controller
@@ -39003,6 +39043,12 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 5204c6f724183a74a8a2c61a35496b31, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99ee4474966e74745b9c63e663124a68, type: 3}
+--- !u!95 &1060142028 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 510838750189163532, guid: 99ee4474966e74745b9c63e663124a68,
+    type: 3}
+  m_PrefabInstance: {fileID: 1060142027}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1087961122
 GameObject:
   m_ObjectHideFlags: 0
@@ -40419,7 +40465,7 @@ PlayableDirector:
   - key: {fileID: -6153148762293328435, guid: 46c4afc521374c243b222a6b2caaa84c, type: 2}
     value: {fileID: 2085286115}
   - key: {fileID: -6652759754530212929, guid: 46c4afc521374c243b222a6b2caaa84c, type: 2}
-    value: {fileID: 0}
+    value: {fileID: 2098236352}
   m_ExposedReferences:
     m_References:
     - fae85074e5014214690334c603d62445: {fileID: 565194143}
@@ -40435,9 +40481,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0afea592c498c364f813ef3674f0b59d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cutsceneAnim1: {fileID: 2098236352}
+  cutsceneAnim1: {fileID: 1060142028}
   cutsceneAnim2: {fileID: 239202973}
   bg: {fileID: 1376689132}
+  cutsceneParticle: {fileID: 1670220128}
 --- !u!61 &1239716876
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48234,7 +48281,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: b3c9933e64dd3be479fea2b2b283fc9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -48749,6 +48796,7 @@ MonoBehaviour:
   cutsceneAnim1: {fileID: 0}
   cutsceneAnim2: {fileID: 0}
   bg: {fileID: 0}
+  cutsceneParticle: {fileID: 0}
 --- !u!1 &1670220125
 GameObject:
   m_ObjectHideFlags: 0
@@ -48823,7 +48871,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 4
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
