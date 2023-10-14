@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BetterJumping : MonoBehaviour
+public class PlayerJump : MonoBehaviour
 {
     private Rigidbody2D rb;
     public float fallMultiplier = 2.5f;

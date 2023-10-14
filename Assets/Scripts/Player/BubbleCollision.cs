@@ -17,8 +17,7 @@ public class BubbleCollision : MonoBehaviour
 
     public Vector2 rightOffset;
     public Vector2 leftOffset;
-    public Vector2 bottomOffset;
-    private Color debugCollisionColor = Color.red;
+    public Vector2 bottomOffset;    
 
     void Update()
     {

@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     private Animator bubbleAnim;
     private Animation anim;
-    private PlayerBubble playerBubble;
+    private BubbleController bubbleController;
     private EnemyMovement enemyMovement;
 
 
@@ -184,7 +184,7 @@ public class PlayerMovement : MonoBehaviour
             anim.ChangeAnimationState(anim.BUBBLE_SHOT_B2);
             StartCoroutine(DelayBubble(1f));
 
-            playerBubble = GetComponent<PlayerBubble>();
+            bubbleController = GetComponent<BubbleController>();
 
             StartCoroutine(Instance(1f, bubblePrefab1));
 
@@ -219,7 +219,7 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         GameObject b2 = Instantiate(bubblePrefab, bubblePoint.position, Quaternion.identity);
-        b2.GetComponent<PlayerBubble>().SetBubbleSide(side);
+        b2.GetComponent<BubbleController>().SetBubbleSide(side);
     }
 
     // Coroutine to delay the player respawn
@@ -251,13 +251,13 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(RestrictDash());
 
         rb.gravityScale = 0;
-        GetComponent<BetterJumping>().enabled = false;
+        GetComponent<PlayerJump>().enabled = false;
         isDashing = true;
 
         yield return new WaitForSeconds(t);
 
         rb.gravityScale = 6;
-        GetComponent<BetterJumping>().enabled = true;
+        GetComponent<PlayerJump>().enabled = true;
         isDashing = false;
     }
 
@@ -272,13 +272,13 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator BubbleJump()
     {
-        GetComponent<BetterJumping>().enabled = false;
+        GetComponent<PlayerJump>().enabled = false;
 
         rb.velocity = Vector2.zero;
         rb.AddForce(Vector2.up * bump, ForceMode2D.Impulse);
 
         yield return new WaitForSeconds(0.3f);
-        GetComponent<BetterJumping>().enabled = true;
+        GetComponent<PlayerJump>().enabled = true;
     }
 
     IEnumerator DefeatEnemy(float time, Collision2D collision)

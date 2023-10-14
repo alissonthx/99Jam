@@ -36,7 +36,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5059166992561552233
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -53,7 +53,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &1707763772375849179
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -115,7 +116,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1241499988110200843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe2ed7fffc2f34e4e897f033abef29f0, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fc0355b4fab1614ca867718a9c7f36c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
@@ -129,10 +130,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3258879241071437828}
-  - component: {fileID: -4309926467987556171}
   - component: {fileID: 293121249}
   - component: {fileID: 293121250}
   - component: {fileID: 3267546110041051373}
+  - component: {fileID: 3551473460402817551}
   m_Layer: 0
   m_Name: Bubble 3
   m_TagString: Bubble3
@@ -156,21 +157,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-4309926467987556171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4614177185465201586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db5a031bb39a43e419c3f68efd299e24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  gForce: -14
-  lifetime: 4
 --- !u!50 &293121249
 Rigidbody2D:
   serializedVersion: 4
@@ -217,16 +203,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 4614177185465201586}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57bee1e78f932f244acf35cd78cfb036, type: 3}
+  m_Script: {fileID: 11500000, guid: 50df003bf60e5d74db07f37cf4e0849e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 384
+    m_Bits: 256
   bottomCollision: 0
   rightCollision: 0
   leftCollision: 0
-  collisionRadius: 0.15
-  rightOffset: {x: 0.915, y: 0}
-  leftOffset: {x: -1.055, y: 0}
-  bottomOffset: {x: 0, y: -1.055}
+  collisionRadius: 0.3
+  rightOffset: {x: 1, y: -0.09}
+  leftOffset: {x: -1.13, y: -0.09}
+  bottomOffset: {x: 0, y: 0.98}
+--- !u!114 &3551473460402817551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4614177185465201586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9061d262058278d4cac132348ce417e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  gForce: -12
+  lifetime: 6

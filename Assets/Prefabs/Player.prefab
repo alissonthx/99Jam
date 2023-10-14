@@ -168,7 +168,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6758251086091031879}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.107, y: 0.33, z: 0}
+  m_LocalPosition: {x: -0.06, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5066,8 +5066,8 @@ GameObject:
   - component: {fileID: 6758251086728884450}
   - component: {fileID: 6758251086728884451}
   - component: {fileID: 6758251086728884448}
-  - component: {fileID: 6758251086728884449}
-  - component: {fileID: 4630806817907830783}
+  - component: {fileID: 9103125306563267718}
+  - component: {fileID: 264516913634347}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -5131,7 +5131,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 1cf74ea6ca330b24a9d78116fcd61ee6, type: 2}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5164,7 +5164,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &6758251086728884449
+--- !u!114 &9103125306563267718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5173,7 +5173,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6758251086728884453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ada9a0ccc20729448abefa620bf5515, type: 3}
+  m_Script: {fileID: 11500000, guid: a802c74ee3ffc7b40bc050430bc8f0d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   loader: {fileID: 0}
@@ -5194,7 +5194,7 @@ MonoBehaviour:
   BUBBLE_SHOT_B2: bubble_shot_b2
   BUBBLE_SHOT_B3: bubble_shot_b3
   PLAYER_DIE: player_die
---- !u!114 &4630806817907830783
+--- !u!114 &264516913634347
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5203,11 +5203,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6758251086728884453}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7533411f5671ed74699ab69477ae8276, type: 3}
+  m_Script: {fileID: 11500000, guid: 236945a915e2af549a586051213ab767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   footstepsAudioSource: {fileID: 4254773399318578724}
-  jumpAudioSource: {fileID: 0}
   footstepsAudioClipDirt:
   - {fileID: 8300000, guid: 8915f6a332c50e34186a7630e5412b85, type: 3}
   - {fileID: 8300000, guid: 0dc64f91dc899e647aa0ac2d866aea79, type: 3}
@@ -5229,7 +5228,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 53c7b65a0405e9f439279d6b3a84cd3f, type: 3}
   - {fileID: 8300000, guid: bfcc0761958a6a641ac373859164e76a, type: 3}
   - {fileID: 8300000, guid: 3612ea9005431dd4cb55504616df18be, type: 3}
-  footstepsAudioClipJump: []
 --- !u!1 &6758251086736547067
 GameObject:
   m_ObjectHideFlags: 0
@@ -5243,8 +5241,8 @@ GameObject:
   - component: {fileID: 6758251086736547044}
   - component: {fileID: 6758251086736547042}
   - component: {fileID: 6758251086736547045}
-  - component: {fileID: 213030908}
   - component: {fileID: 2085286115}
+  - component: {fileID: 2085286122}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -5324,8 +5322,8 @@ MonoBehaviour:
     m_Bits: 256
   onGround: 0
   surface: 
-  collisionRadius: 0.48
-  bottomOffset: {x: -0.05, y: 0.14}
+  collisionRadius: 0.2
+  bottomOffset: {x: 0, y: 0}
 --- !u!114 &6758251086736547045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5352,6 +5350,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   bump: 25
   bubblePrefab1: {fileID: 2611579679675709674, guid: 25041c9bb91685942823a36d07f83170,
     type: 3}
@@ -5361,40 +5360,6 @@ MonoBehaviour:
   bubbleStage: 0
   firstZPressed: 0
   jumpParticle: {fileID: 6758251086091031874}
---- !u!60 &213030908
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6758251086736547067}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: f381d1a1d06d02b4981001795a3a0448, type: 2}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.28747082, y: 2.0318298}
-      - {x: -0.28369617, y: 2.0274396}
-      - {x: -0.53235483, y: 1.7320657}
-      - {x: -0.5582137, y: 0.4279952}
-      - {x: -0.55141217, y: 0.28272226}
-      - {x: -0.5486888, y: 0.15744174}
-      - {x: 0.44426405, y: 0.1554501}
-      - {x: 0.68299866, y: 0.37294722}
-      - {x: 0.69274116, y: 1.531054}
 --- !u!95 &2085286115
 Animator:
   serializedVersion: 5
@@ -5416,6 +5381,48 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!60 &2085286122
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6758251086736547067}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.82}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.6084595, y: 0.93682176}
+      - {x: 0.6029978, y: 1.1744764}
+      - {x: 0.5893936, y: 1.245542}
+      - {x: 0.43700504, y: 1.4414933}
+      - {x: 0.24849415, y: 1.5454044}
+      - {x: -0.09727287, y: 1.5527558}
+      - {x: -0.25281048, y: 1.5496018}
+      - {x: -0.35134506, y: 1.5388772}
+      - {x: -0.4242773, y: 1.4729445}
+      - {x: -0.62238884, y: 1.2633073}
+      - {x: -0.63296986, y: 0.57870334}
+      - {x: -0.63897425, y: 0.34617}
+      - {x: -0.6253767, y: -0.081119835}
+      - {x: -0.61750644, y: -0.80901706}
+      - {x: 0.643788, y: -0.79759765}
+      - {x: 0.61702156, y: 0.48281163}
+      - {x: 0.61668205, y: 0.6062388}
 --- !u!1 &8846898881284082078
 GameObject:
   m_ObjectHideFlags: 0

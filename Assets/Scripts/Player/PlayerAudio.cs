@@ -6,8 +6,8 @@ public class PlayerAudio : MonoBehaviour
 {
     [SerializeField]
     private AudioSource footstepsAudioSource;
-    [SerializeField]
-    private AudioSource jumpAudioSource;
+    // [SerializeField]
+    // private AudioSource jumpAudioSource;
 
     [SerializeField]
     private AudioClip[] footstepsAudioClipDirt;
@@ -15,13 +15,13 @@ public class PlayerAudio : MonoBehaviour
     private AudioClip[] footstepsAudioClipGrass;
     [SerializeField]
     private AudioClip[] footstepsAudioClipStone;
-    [SerializeField]
-    private AudioClip[] footstepsAudioClipJump;  
+    // [SerializeField]
+    // private AudioClip[] footstepsAudioClipJump;  
     private PlayerCollision coll;
 
     void Start()
     {
-        coll = GetComponentInParent<PlayerCollision>();
+        coll = GetComponentInParent<PlayerCollision>();        
     }  
 
     private void Footsteps()
@@ -42,6 +42,6 @@ public class PlayerAudio : MonoBehaviour
 
     private void JumpSound()
     {
-        jumpAudioSource.PlayOneShot(footstepsAudioClipJump[(Random.Range(0, footstepsAudioClipJump.Length))]);
+        // jumpAudioSource.PlayOneShot(footstepsAudioClipJump[(Random.Range(0, footstepsAudioClipJump.Length))]);
     }
 }

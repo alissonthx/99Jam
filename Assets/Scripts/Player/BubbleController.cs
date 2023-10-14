@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBubble : MonoBehaviour
+public class BubbleController : MonoBehaviour
 {
     private EnemyMovement enemyMovement;
 
