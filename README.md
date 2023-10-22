@@ -1,6 +1,6 @@
 <h1 align="center"> 99 Jam 2D Game Platform </h1>
 <img src="./Assets/Gif/player-gif.gif" alt="player insides bubble" />
-<p>2D game make in unity for 99 Jam, in 10 days. Check the <a href="https://nymphdev.itch.io/bubbleguy">Itch page</a></p>
+<p>2D game made in unity for 99 Jam, in 10 days. Check the <a href="https://nymphdev.itch.io/bubbleguy">Itch page</a></p>
 
 <h1 align="center">Core Game</h1>
 <h2>Particles system </h2>
