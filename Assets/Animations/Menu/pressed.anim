@@ -329,7 +329,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0
+  - time: 0.5
     functionName: PlaySound
     data: 
     objectReferenceParameter: {fileID: 8300000, guid: bde14931e8aec5b4fb77e4f793e65d6a,

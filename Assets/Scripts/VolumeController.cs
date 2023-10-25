@@ -8,15 +8,13 @@ public class VolumeController : MonoBehaviour
     [SerializeField]
     private float volumeMaster, volumeSFX, volumeMusic;
     [SerializeField]
-    private Slider sliderMaster, sliderSFX, sliderMusic;
-    [SerializeField]
-    private GameObject startMusic;
+    private Slider sliderMaster, sliderSFX, sliderMusic;    
 
     private void Start()
     {
         sliderMaster.value = PlayerPrefs.GetFloat("Master");
         sliderSFX.value = PlayerPrefs.GetFloat("SFX");
-        sliderMusic.value = PlayerPrefs.GetFloat("Music");
+        sliderMusic.value = PlayerPrefs.GetFloat("Music");        
     }
     public void MusicController()
     {

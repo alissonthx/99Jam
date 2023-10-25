@@ -5,13 +5,13 @@ using UnityEngine;
 public class MenuAnimation : MonoBehaviour
 {
     [SerializeField]
-    private MenuButtonController menuButtonController;
+    private AudioSource audioSource;
     public bool disableOnce;
     public void PlaySound(AudioClip wichSound)
     {
         if (!disableOnce)
         {
-            menuButtonController.audioSource.PlayOneShot(wichSound);
+            audioSource.PlayOneShot(wichSound);
         }
         else
         {
